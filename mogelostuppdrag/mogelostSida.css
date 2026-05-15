@@ -1,0 +1,300 @@
+.displayNone {
+    display: none !important;
+}
+
+html {
+        overflow: hidden;
+
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    background-color: black;
+    overflow: hidden;
+
+
+}
+/*Sida 1*/
+#mogelOstSida1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#mogelOstSida1 img {
+    width: 80%;
+    height: auto;
+    display: block;
+}
+
+#mogelinfo {
+    text-align: center;
+}
+
+#mogelinfo > p {
+    color: yellow;
+    font-size: 22px;
+    font-weight: bolder;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+}
+
+#mogelBtn {
+    margin-top: 20px;
+    padding: 22px;
+    font-size: 18px;
+    background-color: green;
+    color: yellow;
+    border: none;
+    animation: pulsa 0.5s infinite; /* ← lägg till */
+}
+
+@keyframes pulsa {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(0.75); } /* ← ju lägre värde desto mer krymper den */
+}
+
+/* Sida 2 */
+#mogelOstSida2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mogelOstSida2 > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+#mogelinfo2 {
+    position: absolute;
+    top: 330px;
+    left: -160px;
+    width: 200px;
+    transition: all 0.6s ease;
+}
+
+#mogelinfo2 img {
+    width: 200px;
+    margin-bottom: 0;
+}
+
+#mogelinfo2 p {
+    font-size: 15px;
+    text-align: center;
+    color: yellow;
+    margin-top: 0;
+    animation: blinka 0.5s infinite;
+}
+
+@keyframes blinka {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+#fortsattKnapp {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: rgb(62, 239, 62);
+    color: yellow;
+    border: none;
+    animation: blinka 1s infinite;
+}
+
+/*sida 3*/
+#mogelOstSida3 > img {
+    width: 120%;
+    object-fit: cover;
+}
+
+#mogelOstSida3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#mogelinfo3 {
+    text-align: center;
+    position: relative;
+    bottom: 300px;
+    background: rgba(0, 0, 0, 0.6);
+
+
+}
+
+#mogelinfo3 > p {
+    color: yellow;
+    font-size: 22px;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+#mogelBtnSida3 {
+    padding: 15px 60px;
+    font-size: 18px;
+    background-color: green;
+    color: yellow;
+    border: none;
+    animation: pulsa 0.2s infinite; 
+}
+
+/*Sida 4*/
+#mogelOstSida4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(52, 43, 223);
+}
+
+#mogelinfo4 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+}
+
+#mogelinfo4 > p {
+    color: yellow;
+    font-size: 22px;
+    font-weight: bolder;
+    margin: 10px;
+}
+
+#videoUpload {
+    margin-top: 20px;
+    color: yellow;
+    font-size: 16px;
+}
+
+#skickaBtn {
+    margin-top: 25px;
+    padding: 15px 40px;
+    font-size: 18px;
+    background-color: rgb(31, 222, 31);
+    color: black;
+    border: none;
+    cursor: pointer;
+    animation: pulsa 0.5s infinite;
+}
+
+/* SIDA 5 */
+#mogelOstSida5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#mogelOstSida5 > img {
+    width: 120%;
+    object-fit: cover;
+}
+
+#mogelinfo5 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    position: relative;
+    bottom: 260px;
+}
+
+#mogelinfo5 > p {
+    color: yellow;
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+#mogelinfo5 a {
+    color: blue;
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+/*mobil */
+@media (max-width: 430px) {
+    #mogelOstSida1 img {
+        width: 100%;
+    }
+
+    #mogelinfo {
+        width: 80%;
+        bottom: 60px;
+    }
+
+    #mogelinfo p {
+        font-size: 13px;
+    }
+
+    #mogelBtn {
+        width: 70%;
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    #mogelOstSida2 {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #mogelOstSida2 > img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #mogelinfo2 {
+        top: 368px;
+        left: 200px;
+    }
+
+    #mogelinfo2 img {
+        width: 220px;
+    }
+
+    #mogelinfo2 p {
+        font-size: 11px;
+    }
+
+    #fortsattKnapp {
+        margin-top: 0;
+        padding: 30px 70px;
+        font-size: 25px;
+        border-radius: 0;
+    }
+
+    #mogelinfo4 > p {
+        font-size: 22px;
+    }
+
+    #skickaBtn {
+        width: 80%;
+        font-size: 20px;
+    }
+
+    #mogelOstSida5 > img {
+        width: 100%;
+    }
+
+    #mogelinfo5 > p {
+        font-size: 25px;
+    }
+}
+
+
+

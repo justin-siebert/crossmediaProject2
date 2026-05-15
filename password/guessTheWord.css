@@ -1,0 +1,112 @@
+/* Grundinställningar - Hacker Tema */
+body {
+    background-color: #0d0d0d; /* Riktigt mörkt */
+    color: #00ff41; /* Klassisk Matrix-grön */
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#guessTheWord {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+#intro h1 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+#intro p {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* Spelrutor */
+#gamingArea {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.box {
+    width: 40px;
+    height: 50px;
+    border-bottom: 3px solid #00ff41; /* Bara ett streck under ser mer ut som lösenordsfält */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.box.correct {
+    color: #fff;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+/* Input och Knapp */
+#guessedLetter {
+    background: transparent;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    padding: 10px;
+    width: 50px;
+    text-align: center;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+#confirmLetter {
+    background: #00ff41;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+#confirmLetter:hover {
+    background: #00cc33;
+}
+
+/* Felmeddelanden */
+#wrongLetter {
+    color: #ff3333;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+#triedAlready {
+    color: #ffaa00;
+    font-size: 0.7rem;
+    margin-top: 10px;
+}
+
+.success-msg {
+    font-size: 1.5rem;
+    animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

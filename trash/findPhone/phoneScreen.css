@@ -1,0 +1,68 @@
+.displayNone{
+    display: none !important;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+img {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(4, 80px); 
+    gap: 15px;
+    width: 280px;
+    margin: 0 auto;
+}
+
+.numpad button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #444;
+    color: black;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#dotContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.dot {
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+/* Klassen som vi lägger till med JS */
+.shake-error {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0); /* Prestandaoptimering */
+}
+
+/* Själva rörelseschemat */
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* Valfritt: Gör prickarna röda under skakningen */
+.shake-error .dot {
+    border-color: #ff3b30; /* iOS-röd färg */
+    background-color: #ff3b30;
+}

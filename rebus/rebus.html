@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebus</title>
+    <link rel="stylesheet" href="guessTheRebus.css">
+</head>
+
+<body>
+    <div class="gameContainer">
+        <div class="phone">
+            <div class="gamingArea" id="gamingAreaRebus">
+                <div id="hintAndRevealMessage">
+                    <p class="trackerMessage" id="hintTrackerForUser">Hints left: {}</p>
+                    <p class="trackerMessage" id="revealTrackerForUser">Reveals left: {}</p>
+                </div>
+                <div class="guessTheRebus">
+                    <img class="rebusImage" id="rebusImage1">
+                    <span id="rebusPlus">+</span>
+                    <img class="rebusImage" id="rebusImage2">
+                </div>
+                <div class="answerSection"></div>
+            </div>
+            <div class="actionButtons"></div>
+        </div>
+    </div>
+
+    <script src="guessTheRebus.js"></script>
+</body>
+
+</html>

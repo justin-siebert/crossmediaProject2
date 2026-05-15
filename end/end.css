@@ -1,0 +1,54 @@
+body {
+    /* Mjuk övergång för alla förändringar */
+    transition: opacity 1.5s ease, filter 1.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 2s;
+    background-color: white; /* Startfärg */
+    color: black;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Denna klass aktiverar "ut-suddningen" */
+.scene-change {
+    opacity: 0;
+    filter: blur(20px);
+}
+
+/* Lite extra styling för Boom-texten för filmkänsla */
+.boom-text {
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-shadow: 0 0 20px red;
+}
+
+#imgContainer {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: flex-start;
+    width: 90%;
+    gap: 30px; 
+    margin-top: 20px;
+}
+
+#selectionOne, #selectionTwo {
+    text-align: center;
+}
+
+#selectionOne img, #selectionTwo img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;    
+    border-radius: 10px;
+    margin-bottom: 20px ;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}

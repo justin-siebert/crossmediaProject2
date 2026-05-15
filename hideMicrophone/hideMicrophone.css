@@ -1,0 +1,56 @@
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.gameContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.phone {
+    height: 100%;
+    width: 340px;
+    max-width: 429px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    font-size: 10px;
+    transition: transform 0.2s;
+    border: 2px solid black;
+    border-radius: 30px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hideImg {
+    height: 200px;
+}
+
+#microphoneImg {
+    cursor: pointer;
+    transition: transform 0.8s ease-in-out;
+    z-index: 2;
+}
+
+#stoneImg {
+    width: 220px;
+}
+
+#microphoneImg.moveIntoStone {
+    transform: translateY(207px) scale(0.6);
+}
+
+.textStyling {
+    font-size: 16px;
+    text-align: center;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mögelost Spelet</title>
+    <link rel="stylesheet" href="spelJudy.css">
+</head>
+<body>
+
+    <div id="spelIntro">
+        <div id="spelIntroInfo">
+            <p>MÖGELOST UTMANINGEN </p>
+            <p>En mögelost kommer hoppa runt på skärmen, din uppgift är att klicka på den 30 gånger innan tiden tar slut!</p>
+            <p>Du har 25 sekunder... lycka till </p>
+            <button id="korBtn">KÖR!</button>
+        </div>
+    </div>
+
+    <div id="mogelSpel" class="displayNone">
+        <div id="spelInfo">
+            <span>Poäng: <strong id="poang">0</strong>/30</span>
+            <span>Tid: <strong id="timer">25</strong>s</span>
+        </div>
+        <div id="spelPlan">
+            <img src="../bilder/Ostbild.png" id="osten">
+        </div>
+        <div id="spelSlut" class="displayNone">
+            <p id="slutText"></p>
+            <button id="goraOmBtn">Försök igen!</button>
+        </div>
+    </div>
+
+    <script src="spelJudy.js"></script>
+</body>
+</html>

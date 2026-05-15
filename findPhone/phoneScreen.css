@@ -1,0 +1,126 @@
+.displayNone{
+    display: none !important;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+img {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(4, 80px); 
+    gap: 15px;
+    width: 280px;
+    margin: 0 auto;
+}
+
+.numpad button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #444;
+    color: black;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+/* Gör att knapparna ser mer klickbara ut */
+.numpad button:active {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+}
+
+/* Prickarna när de är fyllda */
+.dot {
+    transition: background-color 0.2s;
+    background-color: white; /* Startfärg */
+}
+
+#dotContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.dot {
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+/* Klassen som vi lägger till med JS */
+.shake-error {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0); /* Prestandaoptimering */
+}
+
+/* Själva rörelseschemat */
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* Valfritt: Gör prickarna röda under skakningen */
+.shake-error .dot {
+    border-color: #ff3b30; /* iOS-röd färg */
+    background-color: #ff3b30;
+}
+
+#phoneText {
+    /* Stabil bredd */
+    width: 90vw; 
+    max-width: 400px; /* Förhindrar att den blir för bred på stora skärmar */
+    min-height: 250px; /* Ger rutan en form direkt */
+    
+    /* Centrerar rutan */
+    margin: 20px auto; 
+    
+    /* Design */
+    background-color: #050505;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 12px;
+    box-sizing: border-box; /* VIKTIGT: Padding räknas in i 90% */
+    
+    /* Hacker-detaljer */
+    box-shadow: inset 0 0 15px rgba(0, 255, 65, 0.1);
+    position: relative;
+    overflow: hidden; 
+}
+
+#textDivFirstMission {
+    word-wrap: break-word; /* Bryter långa ord så de inte trycker ut väggen */
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+/* Markören som blinkar vid "frontlinjen" */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1rem;
+    background-color: #00ff41;
+    margin-left: 2px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

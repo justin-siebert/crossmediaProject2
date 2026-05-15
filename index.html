@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Links</title>
+</head>
+<body>
+
+    <div>
+        <H1>Välkommen till Bo01-spelet</H1>
+    </div>
+
+    <div id="questcontainer">
+        <button id="nav-start"><a href="start.html">Start av spelet</a></button>
+        
+        <button id="nav-newspaper" class="locked"><a href="newspaper/newspaper.html">Artikel</a></button>
+        
+        <button id="nav-phone" class="locked"><a href="findPhone/info.html">Info Uppdrag upphittat tel</a></button> <!-- displayNone efter uppdrag-->
+        
+        <button id="nav-video" class="locked"><a href="findPhone/video.html">Video efter hittad lur</a></button> <!-- Låser upp koordinater till väskan-->
+        
+        <button id="nav-bench" class="locked"><a href="bench/getBag.html">Bänken (Hämta väskan)</a></button>
+                
+        <button id="nav-electric" class="locked"><a href="mögelostuppdrag/mögelost.html">Mögelost uppdrag</a></button>
+        
+        <button id="nav-cheese" class="locked"><a href="Ostspel/spelJudy.html">Hitta mögelost till Mögelost</a></button>
+        
+        <button id="nav-rebus" class="locked"><a href="rebus/rebus.html">Rebus</a></button>
+        
+        <button id="nav-mic" class="locked"><a href="hideMicrophone/hideMicrophone.html">hideMicrophone</a></button>
+        
+        <button id="nav-email" class="locked"><a href="emailPolice/index.html">Mejla PolisChef</a></button>
+        
+        <button id="nav-end" class="locked"><a href="end/end.html">Gängträff</a></button>
+    </div>
+
+    <div class="scanner-container">
+        <p class="status-text">GPS-STATUS: VÄNTAR PÅ SIGNAL...</p>
+        <button id="scan-location-btn" onclick="checkProximity()">
+            <span class="pulse"></span> TERMINAL-SCAN
+        </button>
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+.displayNone {
+    display: none !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+}
+
+#mogelSpel {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#spelInfo {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    color: yellow;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+#osten {
+    width: 120px;
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+#spelSlut {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: yellow;
+    font-size: 28px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* 📱 MOBIL */
+@media (max-width: 430px) {
+    #osten {
+        width: 120px;
+    }
+
+    #spelInfo {
+        font-size: 18px;
+    }
+
+    #spelSlut {
+        font-size: 20px;
+        padding: 20px;
+    }
+
+    #spelIntroInfo > p {
+        font-size: 15px;
+    }
+
+    #korBtn {
+        font-size: 18px;
+        padding: 12px 40px;
+    }
+}
+
+#spelIntro {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#spelIntroInfo {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+}
+
+#spelIntroInfo > p {
+    color: yellow;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+#korBtn {
+    margin-top: 25px;
+    padding: 15px 50px;
+    font-size: 22px;
+    background-color: green;
+    color: yellow;
+    border: none;
+    cursor: pointer;
+    animation: pulsa 0.5s infinite;
+}
+
+@keyframes pulsa {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(0.85); }
+}
+
+#goraOmBtn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: green;
+    color: yellow;
+    border: none;
+    cursor: pointer;
+}
+

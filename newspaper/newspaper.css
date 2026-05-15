@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.displayNone {
+    display: none !important;
+}
+
+#newsPaperSection {
+    font-family: "Times New Roman", Georgia, serif;
+    max-width: 1100px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background: #f4ecd8;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+#readCarefully {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    animation: blinkText 1.5s infinite;
+}
+
+@keyframes blinkText {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+#navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px double black;
+    padding-bottom: 10px;
+}
+
+#navBar h1 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#newspaperIcon {
+    height: 70px;
+    width: 70px;
+}
+
+#sectionOne, #sectionTwo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.articelSzS {
+    flex: 1 1 300px;
+    padding: 15px;
+    border-right: 1px solid #999;
+    position: relative;
+}
+
+.articelSzS:last-child {
+    border-right: none;
+}
+
+.articelSzS h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.articelSzS p:first-of-type::first-letter {
+    font-size: 20px;
+    float: left;
+    margin-right: 2px;
+    font-weight: bold;
+    color: red;
+}
+
+.articelSzS p {
+    margin: 6px 0;
+    line-height: 1.6;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.highlight {
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.clue {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.articelSzS img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    margin: 10px 0;
+}
+
+.subheadline {
+    font-size: 14px;
+    font-style: italic;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 8px;
+}
+
+#picNText {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#firstMission {
+    min-height: 100vh;
+    width: 100%;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(18, 138, 18);
+    font-weight: 500;
+}
+
+#textDivFirstMission {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 📱 MOBIL */
+@media (max-width: 768px) {
+
+    #newsPaperSection {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    #navBar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    #navBar h1 {
+        font-size: 18px;
+    }
+
+    #newspaperIcon {
+        height: 50px;
+        width: 50px;
+    }
+
+    #sectionOne, #sectionTwo {
+        flex-direction: column;
+    }
+
+    .articelSzS {
+        border-right: none;
+        border-bottom: 1px solid #999;
+    }
+
+    .articelSzS h1 {
+        font-size: 18px;
+    }
+
+    .articelSzS p {
+        font-size: 14px;
+    }
+
+    #picNText {
+        flex-direction: column;
+        text-align: center;
+    }
+}
