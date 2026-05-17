@@ -1,6 +1,7 @@
 // --- KOORDINATER (Dina uppdaterade mål) ---
 const locations = {
-    phone: { lat: 55.610201, lon: 12.972288, key: "phoneUnlocked", name: "Telefonen" },
+    //phone: { lat: 55.610201, lon: 12.972288, key: "phoneUnlocked", name: "Telefonen" }, 55,59128° N, 13,00066° Ö
+    phone: { lat: 55.59128, lon: 13.00066, key: "phoneUnlocked", name: "Telefonen" },
     bench: { lat: 55.610965, lon: 12.976365, key: "benchUnlocked", name: "Bänken" },
     electric: { lat: 55.611458, lon: 12.973549, key: "electricUnlocked", name: "Elskåpet" },
     cheese: { lat: 55.612034, lon: 12.972083, key: "cheeseUnlocked", name: "Cheese-gömman" },
