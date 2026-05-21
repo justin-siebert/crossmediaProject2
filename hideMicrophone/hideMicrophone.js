@@ -4,43 +4,62 @@ const successText = document.createElement("p");
 const br = document.createElement("br");
 const phoneDiv = document.querySelector(".phone");
 
-// Skapa knappen för att gå tillbaka
 const backBtn = document.createElement("button");
 backBtn.textContent = "RAPPORTERA TILL CHEFEN";
-backBtn.classList.add("actionButtons"); // Använd samma styling som dina andra knappar
+backBtn.classList.add("actionButtons");
 backBtn.style.marginTop = "20px";
 
-successText.classList.add("textStyling");
-clickMessage.classList.add("textStyling");
-clickMessage.textContent = "Klicka på mikrofonen för att gömma den!";
+// NYTT: Kontrollera status när sidan laddas
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("micTaskDone") === "true") {
+        visaKlarStadie();
+    } else {
+        clickMessage.classList.add("textStyling");
+        clickMessage.textContent = "Klicka på mikrofonen för att gömma den!";
+        phoneDiv.prepend(clickMessage);
+    }
+});
 
-phoneDiv.prepend(clickMessage);
+function visaKlarStadie() {
+    microphone.classList.add("moveIntoStone"); // Antingen dölj den eller låt den vara i "gömt" läge
+    
+    successText.classList.add("textStyling");
+    successText.textContent = "Du har redan gömt mikrofonen. Koordinaterna är:";
+    successText.appendChild(br);
+    
+    const coordSpan = document.createElement("span");
+    coordSpan.textContent = "55.610636, 12.974856";
+    //coordSpan.innerHTML = '<a href="https://share.google/0UBij1seXQwrz3NWy" target="_blank">Ta dig till 55.610636, 12.974856</a>';
+    coordSpan.style.fontWeight = "bold";
+    coordSpan.style.display = "block";
+    successText.appendChild(coordSpan);
+    
+    phoneDiv.prepend(successText);
+}
 
 microphone.addEventListener("click", () => {
+    // Om det redan är klart, gör inget mer
+    if (localStorage.getItem("micTaskDone") === "true") return;
+
     clickMessage.remove();
     microphone.classList.add("moveIntoStone");
 
-    successText.textContent = "En riktig rackare är du! Här är de nästa koordinaterna som du behöver för att ta dig vidare:";
+    successText.textContent = "En riktig rackare är du! Här är de nästa koordinaterna:";
     successText.appendChild(br);
     
-    // Vi skapar en span för koordinaterna så de syns tydligt
     const coordSpan = document.createElement("span");
-    coordSpan.textContent = "55.611321, 12.973578";
+    coordSpan.textContent = "55.610636, 12.974856";
     coordSpan.style.fontWeight = "bold";
     coordSpan.style.display = "block";
     successText.appendChild(coordSpan);
 
     setTimeout(() => {
         phoneDiv.prepend(successText);
-        phoneDiv.appendChild(backBtn); // Visa knappen efter att micken är gömd
+        phoneDiv.appendChild(backBtn);
     }, 1000);
 });
 
-// Logik för när man klickar på rapport-knappen
 backBtn.addEventListener("click", () => {
-    // 1. Spara att mikrofon-uppdraget är klart
     localStorage.setItem("micTaskDone", "true");
-
-    // 2. Skicka spelaren tillbaka till menyn
     window.location.href = "../index.html";
 });

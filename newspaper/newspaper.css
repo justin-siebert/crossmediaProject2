@@ -187,3 +187,8 @@ body {
         text-align: center;
     }
 }
+
+#locationID {
+    text-decoration: none;
+    color: black;
+}

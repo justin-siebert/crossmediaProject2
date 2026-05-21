@@ -65,7 +65,7 @@ function checkLetter(letter) {
 function checkWinCondition() {
     let allCorrect = arrayOfDiv.every((box) => box.classList.contains("correct"));
     if (allCorrect) {  
-        alert("Vinst! Sparar nu...");   
+ 
         localStorage.setItem("newspaperUnlocked", "true")   
         setTimeout(() => {
             body.innerHTML = "<div class='success-msg'>ÅTKOMST BEVILJAD... ÖPPNAR FIL.</div>";

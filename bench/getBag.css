@@ -1,0 +1,70 @@
+/* Grund för hacker-looken */
+.hacker-container {
+    background-color: #0d0d0d;
+    color: #00ff41; /* Klassisk hacker-grön */
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    max-width: 90%;
+    width: 400px;
+    border: 1px solid #00ff41;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+.hacker-text {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.data-box {
+    background: #1a1a1a;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-left: 3px solid #00ff41;
+}
+
+.hacker-img {
+    width: 100%;
+    max-width: 200px;
+    margin: 20px 0;
+    filter: drop-shadow(0 0 5px #00ff41);
+}
+
+.hacker-btn {
+    background: transparent;
+    color: #00ff41;
+    border: 1px solid #00ff41;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.hacker-btn:hover {
+    background: #00ff41;
+    color: #0d0d0d;
+}
+
+/* En enkel "scanline"-effekt för retro-känsla */
+.scan-line {
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 255, 65, 0.1);
+    position: absolute;
+    top: 0;
+    animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}

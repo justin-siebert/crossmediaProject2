@@ -1,4 +1,3 @@
-// --- Gemensamma variabler ---
 const pincode = ["1", "3", "1", "2"];
 let userChosenPin = [];
 let wrongs = 0;
@@ -6,9 +5,8 @@ let wrongs = 0;
 // --- SÄKERHETSKONTROLL: info.html ---
 const mainContainer = document.querySelector("#phoneText");
 if (mainContainer) {
-    let message = "Du har hittat måltavlastens telefon. Enheten är krypterad och kräver en fyrsiffrig kod för att låsas upp. Inuti finns de koordinater och instruktioner du behöver för att gå vidare till nästa steg i uppdraget. Lås upp telefonen för att få din nästa order.";
+    let message = "Du har hittat måltavlans telefon. Enheten är krypterad och kräver en fyrsiffrig kod för att låsas upp. Inuti finns de koordinater och instruktioner du behöver för att gå vidare till nästa steg i uppdraget. Lås upp telefonen för att få din nästa order.";
     
-    // Vi kör funktionen direkt
     typeOutSlowly(message.split(" "));
 }
 
@@ -100,7 +98,6 @@ async function typeOutSlowly(words) {
         await sleep(20);
     }
     
-    // Visa knappen (oavsett om den heter startBtn eller är en vanlig knapp)
     const btn = document.querySelector("button[onclick='startGame()']");
     if (btn) btn.style.display = "block";
 }

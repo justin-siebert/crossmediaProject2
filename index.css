@@ -1,50 +1,88 @@
-/* index.css eller i din style-tagg */
+/* Hacker Terminal Tema */
+body {
+    background-color: #050505;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #00ff41;
+    border-bottom: 2px solid #00ff41;
+    padding-bottom: 10px;
+}
+
+#questcontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.hacker-btn {
+    background: #0d0d0d;
+    border: 1px solid #00ff41;
+    padding: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.hacker-btn a {
+    color: #00ff41;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+.hacker-btn:hover {
+    background: #00ff41;
+}
+
+.hacker-btn:hover a {
+    color: #000;
+}
+
+/* Låsta knappar */
 .locked {
-    background-color: #222 !important;
-    border: 1px solid #444 !important;
-    opacity: 0.5;
+    background-color: #1a1a1a !important;
+    border: 1px solid #333 !important;
+    opacity: 0.6;
     pointer-events: none; 
     cursor: not-allowed;
-    position: relative;
 }
 
 .locked a {
-    color: #666 !important;
-    text-decoration: none;
+    color: #444 !important;
 }
 
-.locked::after {
-    content: " 🔒";
-    font-size: 0.8rem;
-}
-
+/* Scan-knappen */
 #scan-location-btn {
     background: #000;
     color: #00ff41;
     border: 1px solid #00ff41;
-    padding: 15px 30px;
+    padding: 15px;
     font-family: 'Courier New', monospace;
     font-weight: bold;
-    letter-spacing: 2px;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
     width: 100%;
     margin-top: 20px;
 }
 
-#scan-location-btn:hover {
-    background: #00ff41;
-    color: #000;
-}
-
-/* En liten pulserande prick för effekt */
 .pulse {
     display: inline-block;
     width: 10px;
     height: 10px;
     background: #00ff41;
     border-radius: 50%;
-    margin-right: 10px;
     animation: pulse-animation 2s infinite;
 }
 

@@ -50,9 +50,6 @@ const rebusArray = [
     }
 ]
 
-//fixa lika många svarsrutor som antal bokstäver i correctAnswer
-//fixa loop för att få ut emojies
-
 const body = document.querySelector("body");
 const gamingArea = document.querySelector(".gamingArea");
 const guessTheRebus = document.querySelector(".guessTheRebus");
@@ -126,6 +123,8 @@ let currentRebus = undefined;
 hintTrackerForUser.textContent = `Hints left: ${hintsLeft}`;
 revealTrackerForUser.textContent = `Reveals left: ${revealsLeft}`;
 
+//Fixa så man ej behöver scrolla upp varje gång getVictoryOverlay laddas! Mobilanpassa skiten!
+
 function checkAnswer() {
 
     if (revealTracker === 1) {
@@ -174,40 +173,35 @@ function checkAnswer() {
 }
 
 function getFinishedPage() {
-    console.log("HEEEEJJ");
     phoneDiv.innerHTML = "";
     img.classList.add("blinking_mogelost");
 
     img.src = "../bilder/glad_mogelost.png";
 
-    excitedMessage.textContent = "YES!! Thank you, you're the best!";
+    excitedMessage.textContent = "YES!! Vi gjorde det, vi hann före! Tack snälla, du är bäst!"
     phoneDiv.appendChild(excitedMessage);
     phoneDiv.appendChild(img);
 
-    // --- HÄR SPARAS REBUS-VINSTEN ---
-    localStorage.setItem("rebusTaskDone", "true"); 
-    // --------------------------------
+    localStorage.setItem("rebusTaskDone", "true");
 
     setTimeout(() => {
         img.classList.remove("blinking_mogelost");
         img.src = "../bilder/mogelosten_armar_i_kors.png";
-        excitedMessage.textContent = "Ehm, uh I mean thanks I guess...";
+        excitedMessage.textContent = "Ehm, uh jag menar tack antar jag..."
 
         const backToMenuBtn = document.createElement("button");
         backToMenuBtn.textContent = "BACK TO MENU";
         backToMenuBtn.classList.add("actionButtons");
         backToMenuBtn.style.marginTop = "20px";
-        
-        backToMenuBtn.addEventListener("click", () => {
-            window.location.href = "../index.html"; 
-        });
+        phoneDiv.append(backToMenuBtn)
 
-        phoneDiv.appendChild(backToMenuBtn);
+        backToMenuBtn.addEventListener("click", () => {
+            window.location.href = "../index.html";
+        });
     }, 4000);
 }
 
 function getVictoryOverlay() {
-
     victoryMessageText.textContent = "CORRECT!";
     correctAnswerText.textContent = `The answer was: ${rebusArray[currentIndex].correctAnswer}`;
     victoryMessageDiv.appendChild(victoryMessageText);
@@ -222,13 +216,11 @@ function removeVictoryOverlay() {
 }
 
 function getFailureMessage() {
-    console.log("feeeel")
     phoneDiv.insertBefore(wrongAnswerDiv, actionsButtonsDiv)
     wrongAnswerText.textContent = "Not quite, try again!";
 }
 
 function getHint() {
-
     hintTracker++
 
     hintsLeft--;
@@ -248,17 +240,12 @@ function getHint() {
 }
 
 function revealAnswer() {
-
     revealBtn.disabled = true;
     hintBtn.disabled = true;
     revealTracker++
 
     revealsLeft--;
     revealTrackerForUser.textContent = `Reveals left: ${revealsLeft}`;
-
-    console.log("vi ska reveala svaret!");
-    console.log(revealTracker, " revealTracker borde vara större än 0");
-    console.log(revealTracker, `${revealTracker} använda av max 2 reveals`);
 
     wasRevealed = true;
 
@@ -277,7 +264,6 @@ function revealAnswer() {
 }
 
 function getInputBoxes(rebus) {
-
     answerSection.innerHTML = "";
     const allInputBoxes = [];
 
@@ -305,7 +291,6 @@ function getInputBoxes(rebus) {
 }
 
 function getNewImages() {
-
     checkHintAndRevealTrackers();
     guessBtn.textContent = "GUESS";
 
@@ -318,24 +303,12 @@ function getNewImages() {
         }
 
         img1.src = currentRebus.word1;
-        console.log(img1.src, "första bilden i iterationen")
         img2.src = currentRebus.word2;
-        console.log(img2.src, "andra bilden i iterationen");
 
         getInputBoxes(currentRebus)
     }
 
 }
-
-nextBtn.addEventListener("click", () => {
-    console.log("12345")
-
-    hintBtn.disabled = false;
-    revealBtn.disabled = false;
-    getNewImages();
-    removeVictoryOverlay();
-
-})
 
 function checkHintAndRevealTrackers() {
     if (hintTracker >= 2) {
@@ -354,7 +327,7 @@ function checkHintAndRevealTrackers() {
 function getAgnetaMessage() {
     const AgnetaMessage = document.createElement("p");
     AgnetaMessage.classList.add("AgnetaMessage");
-    AgnetaMessage.textContent = "Hurry up! Agneta is already one rebus ahead of you!";
+    AgnetaMessage.textContent = "Skynda dig! Agneta är en rebus före dig!";
 
     phoneDiv.appendChild(AgnetaMessage);
 
@@ -364,7 +337,7 @@ function getAgnetaMessage() {
 }
 
 function rebusIntroductionPage() {
-    introText.textContent = "There are in total 7 rounds that you have to finish before Agneta57! You have two reveals and two hints to your help. Good luck!";
+    introText.textContent = "Det är totalt 7 rundor som du behöver göra klart innan Agneta57 för att gå om henne i rankningen och bli rebusmästare! Du har två reveals och två hintar till hjälp. Lycka till!";
 
     gamingArea.classList.remove("active");
     phoneDiv.insertBefore(introText, actionsButtonsDiv);
@@ -390,8 +363,6 @@ function showGame() {
 }
 
 guessBtn.addEventListener("click", () => {
-    console.log(revealTracker, "12345")
-
     const hintSpanElementsToRemove = document.querySelectorAll(".hintMessage");
     console.log(hintSpanElementsToRemove, "span-element som ska tas bort inför nästa rebus")
     hintSpanElementsToRemove.forEach(span => span.remove());
@@ -410,6 +381,14 @@ revealBtn.addEventListener("click", () => {
 
 startBtn.addEventListener("click", () => {
     showGame();
+})
+
+nextBtn.addEventListener("click", () => {
+    hintBtn.disabled = false;
+    revealBtn.disabled = false;
+    getNewImages();
+    removeVictoryOverlay();
+
 })
 
 rebusIntroductionPage()
