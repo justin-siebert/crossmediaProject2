@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hittad Telefon - Video</title>
+    <style>
+        /* All CSS ligger direkt här så det inte krockar med din hacker-CSS */
+        body {
+            background-color: #121212; /* Mörk mobilbakgrund för att videon ska poppa */
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Mobilens skärm-behållare */
+        .phone-screen {
+            width: 100%;
+            max-width: 375px; /* Standard bredd för en mobilskärm */
+            background-color: #1c1c1e; /* iOS mörkgrå färg för appar */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Appens header/titelrad */
+        .app-header {
+            text-align: center;
+            padding: 10px 0 20px 0;
+            border-bottom: 1px solid #2c2c2e;
+        }
+
+        .app-header h1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+            color: #aeaeb2;
+            letter-spacing: 0.5px;
+        }
+
+        /* Videospelaren (Stående Shorts-format) */
+        .video-container {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 9 / 16;
+            margin: 25px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            background-color: #000;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Info-sektion under videon */
+        .info-section {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10px;
+        }
+
+        .file-name {
+            font-size: 0.85rem;
+            color: #8e8e93;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .coordinates-box {
+            background-color: #2c2c2e;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .coordinates-box p {
+            margin: 0 0 5px 0;
+            font-size: 0.9rem;
+            color: #34c759; /* Mobil-grön för hittad signal */
+            font-weight: 600;
+        }
+
+        .coords {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        /* Standard mobil-knapp (iOS/Android inspirerad) */
+        .phone-btn {
+            background-color: #007aff; /* Klassisk smartphone-blå */
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .phone-btn:active {
+            background-color: #0056b3;
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-screen">
+        <div class="app-header">
+            <h1>KRYPTERAD_FILM.MP4</h1>
+        </div>
+
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/mWK1Mpd6D6I?autoplay=1&mute=1&loop=1&playlist=mWK1Mpd6D6I&controls=1" 
+                title="Upphittad video" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="info-section">
+            <div class="file-name">Källa: Okänt nummer</div>
+            
+            <div class="coordinates-box">
+                <p>EXTRAHERADE KOORDINATER:</p>
+                <div class="coords">55.610636, 12.974856</div>
+            </div>
+
+            <button onclick="videoDone()" class="phone-btn">Spara & gå vidare</button>
+        </div>
+    </div>
+
+    <script>
+        function videoDone() {
+            // Spara framsteg till index.js
+            localStorage.setItem("videoTaskDone", "true");
+            // Skicka tillbaka till huvudmenyn
+            window.location.href = "../index.html";
+        }
+    </script>
+</body>
+</html>
