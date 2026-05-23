@@ -61,7 +61,7 @@ const hintBtn = document.createElement("button");
 const revealBtn = document.createElement("button");
 const nextBtn = document.createElement("button");
 const phoneDiv = document.querySelector(".phone");
-const actionsButtonsDiv = document.querySelector(".actionButtons");
+const actionsButtonsDiv = document.querySelector(".actionButtonsDiv");
 const hintMessage = document.querySelector(".hintMessage");
 const hintTrackerForUser = document.getElementById("hintTrackerForUser");
 const revealTrackerForUser = document.getElementById("revealTrackerForUser");
@@ -74,6 +74,7 @@ const img = document.createElement("img");
 const excitedMessage = document.createElement("p");
 const startBtn = document.createElement("button");
 const introText = document.createElement("p");
+const userScript = document.createElement("p");
 
 const wrongAnswerDiv = document.createElement("div");
 const wrongAnswerText = document.createElement("p");
@@ -87,6 +88,8 @@ img.classList.add("mogelostenFinalPage");
 excitedMessage.classList.add("textStyling");
 introText.classList.add("textStyling");
 introText.id = "introText";
+userScript.classList.add("textStyling");
+userScript.id = "userScript";
 
 wrongAnswerDiv.classList.add("wrongAnswerDiv");
 wrongAnswerText.classList.add("wrongAnswerText");
@@ -115,10 +118,10 @@ let currentIndex = 0;
 let revealTracker = 0;
 let finishedTracker = false;
 let hintTracker = 0;
-let wasRevealed = false;
 let hintsLeft = 2;
 let revealsLeft = 2;
 let currentRebus = undefined;
+let revealedNow = false;
 
 hintTrackerForUser.textContent = `Hints left: ${hintsLeft}`;
 revealTrackerForUser.textContent = `Reveals left: ${revealsLeft}`;
@@ -126,6 +129,8 @@ revealTrackerForUser.textContent = `Reveals left: ${revealsLeft}`;
 //Fixa så man ej behöver scrolla upp varje gång getVictoryOverlay laddas! Mobilanpassa skiten!
 
 function checkAnswer() {
+
+    console.log(revealedNow, "ordet har avslöjats")
 
     if (revealTracker === 1) {
         revealBtn.disabled = false;
@@ -159,9 +164,10 @@ function checkAnswer() {
 
         currentIndex++
 
-        if (wasRevealed) {
+        if (revealedNow) {
             getNewImages();
             checkHintAndRevealTrackers();
+            revealedNow = false;
         } else {
             getVictoryOverlay();
         }
@@ -189,8 +195,56 @@ function getFinishedPage() {
         img.src = "../bilder/mogelosten_armar_i_kors.png";
         excitedMessage.textContent = "Ehm, uh jag menar tack antar jag..."
 
+        playDialogue()
+    }, 3000);
+
+
+    const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    async function playDialogue() {
+        await wait(3000);
+        excitedMessage.textContent = "Åh det är så drygt att vi har möten hela tiden.";
+
+        await wait(2000);
+        excitedMessage.remove();
+        phoneDiv.appendChild(userScript)
+        userScript.textContent = "*Du*: Om vad?";
+
+        await wait(3000);
+        userScript.remove();
+        phoneDiv.insertBefore(excitedMessage, img);
+        excitedMessage.textContent = "Alltså jag borde egentligen inte berätta det för dig eftersom du är ny och så... men du har ju förtjänat mitt förtroende...";
+
+        await wait(6000);
+        excitedMessage.textContent = "Det är stora saker på gång. Vi ska få veta mer om det från Bossen ikväll. Bossen är paranoid så vi måste mötas på olika ställen varje gång för att ingen ska vara oss på spåren.";
+
+        await wait(4000);
+        excitedMessage.remove();
+        phoneDiv.appendChild(userScript);
+        userScript.textContent = "*Du*: Var ska ni träffas den här gången då?";
+
+        await wait(4000);
+        userScript.remove();
+        phoneDiv.insertBefore(excitedMessage, img)
+        excitedMessage.textContent = "Bara några minuter härifrån, vid Soliga kvarteret heter det. Aight, har sagt för mycket redan. Ses!";
+
+        await wait(5000);
+
+        const repeatConversationBtn = document.createElement("button");
+        repeatConversationBtn.textContent = "REPETERA KONVERSATIONEN";
+        repeatConversationBtn.id = "repeatConversationBtn";
+        repeatConversationBtn.classList.add("actionButtons");
+        phoneDiv.appendChild(repeatConversationBtn);
+
+        img.remove();
+        excitedMessage.textContent = "Ta dig till Soliga kvarteret nu på en gång, 55.611321, 12.973578! "
+
+        repeatConversationBtn.addEventListener("click", () => {
+            getFinishedPage();
+        })
+
         const backToMenuBtn = document.createElement("button");
-        backToMenuBtn.textContent = "BACK TO MENU";
+        backToMenuBtn.textContent = "TILL HUVUDMENYN";
         backToMenuBtn.classList.add("actionButtons");
         backToMenuBtn.style.marginTop = "20px";
         phoneDiv.append(backToMenuBtn)
@@ -198,8 +252,13 @@ function getFinishedPage() {
         backToMenuBtn.addEventListener("click", () => {
             window.location.href = "../index.html";
         });
-    }, 4000);
+    }
+
+
 }
+
+
+
 
 function getVictoryOverlay() {
     victoryMessageText.textContent = "CORRECT!";
@@ -243,11 +302,10 @@ function revealAnswer() {
     revealBtn.disabled = true;
     hintBtn.disabled = true;
     revealTracker++
+    revealedNow = true;
 
     revealsLeft--;
     revealTrackerForUser.textContent = `Reveals left: ${revealsLeft}`;
-
-    wasRevealed = true;
 
     if (revealTracker > 0) {
         const inputBoxesList = document.querySelectorAll(".inputBox");
@@ -258,7 +316,6 @@ function revealAnswer() {
                 box.value = rebusArray[currentIndex].correctAnswer[index];
             }
         });
-
         guessBtn.textContent = "Next rebus";
     }
 }
@@ -362,6 +419,15 @@ function showGame() {
     getNewImages();
 }
 
+nextBtn.addEventListener("click", () => {
+    hintBtn.disabled = false;
+    revealBtn.disabled = false;
+    getNewImages();
+    removeVictoryOverlay();
+    revealedNow = false
+
+})
+
 guessBtn.addEventListener("click", () => {
     const hintSpanElementsToRemove = document.querySelectorAll(".hintMessage");
     console.log(hintSpanElementsToRemove, "span-element som ska tas bort inför nästa rebus")
@@ -381,14 +447,6 @@ revealBtn.addEventListener("click", () => {
 
 startBtn.addEventListener("click", () => {
     showGame();
-})
-
-nextBtn.addEventListener("click", () => {
-    hintBtn.disabled = false;
-    revealBtn.disabled = false;
-    getNewImages();
-    removeVictoryOverlay();
-
 })
 
 rebusIntroductionPage()

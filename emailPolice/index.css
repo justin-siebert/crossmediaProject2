@@ -1,24 +1,129 @@
-body{
+/* Grundinställningar för hela skärmen */
+body {
+    background-color: #f2f2f7; /* Ljusgrå standardbakgrund för iOS */
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    min-height: 100vh;
+}
+
+/* Behållare för instruktionstexten ovanför mejlet */
+#textContainer {
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    color: #3a3a3c;
+    text-align: center;
+}
+
+/* Själva mejl-appen */
+.mail-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px; /* Perfekt mobilbredd */
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+/* Översta raden i mejl-appen */
+.mail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5ea;
+    background-color: #ffffff;
+}
+
+.mail-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000000;
+}
+
+.cancel-text {
+    color: #007aff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Den blåa "Skicka"-knappen */
+.send-btn {
+    background-color: #007aff;
+    color: #ffffff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.send-btn:active {
+    background-color: #0056b3;
+}
+
+/* Sektionen med Till och Ämne */
+.mail-meta {
+    background-color: #ffffff;
+    padding: 0 15px;
+    border-bottom: 1px solid #e5e5ea;
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f2f2f7;
+}
+
+.meta-row:last-child {
+    border-bottom: none;
+}
+
+.meta-row label {
+    color: #8e8e93;
+    width: 50px;
+    font-size: 0.95rem;
+}
+
+.meta-row input {
+    border: none;
+    background: transparent;
+    color: #000000;
+    font-size: 0.95rem;
+    width: 100%;
+    font-family: inherit;
+}
+
+/* Textrutan där man skriver */
+.message-body {
+    flex-grow: 1;
+    display: flex;
+    padding: 15px;
+    background-color: #ffffff;
 }
 
 textarea {
-    height: 100px;
-    width: 200px;
-    border: 1px solid black;
-    margin-bottom: 20px;
-    max-width: 90%;
-    max-height: 90%;
-    min-width: 80%;
-    min-height: 50%;
-}
-
-#textContainer {
-    height: 60px;
-    min-width: 90%;
-    text-align: left;
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none; /* Tar bort det fula hörnet man kan dra i */
+    font-family: inherit;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    outline: none; /* Tar bort den blåa ramen när man klickar i rutan */
+    color: #3a3a3c;
 }
 

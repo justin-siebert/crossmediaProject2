@@ -84,3 +84,19 @@ enterButton.addEventListener("click", () => {
     guessedLetterInput.value = "";
     guessedLetterInput.focus();
 });
+
+guessedLetterInput.addEventListener("input", () => {
+    // Om spelaren skriver mer än ett tecken, behåll bara det första
+    if (guessedLetterInput.value.length > 1) {
+        guessedLetterInput.value = guessedLetterInput.value.charAt(0);
+    }
+});
+
+enterButton.addEventListener("click", () => {
+    const value = guessedLetterInput.value.toLowerCase();
+    if (value.length === 1 && isNaN(value)) {
+        checkLetter(value);
+    }
+    guessedLetterInput.value = "";
+    guessedLetterInput.focus();
+});

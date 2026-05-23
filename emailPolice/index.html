@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <title>Nytt Meddelande</title>
 </head>
 <body>
     <div id="textContainer"></div>
 
-    <main>
-        <textarea id="messageField" placeholder="Skriv din text här..."></textarea>
-        <button type="button" onclick="sendEmail()">Send</button>
+    <main class="mail-container">
+        <div class="mail-header">
+            <span class="cancel-text">Avbryt</span>
+            <h2>Nytt mejl</h2>
+            <button type="button" class="send-btn" onclick="sendEmail()">Skicka</button>
+        </div>
+
+        <div class="mail-meta">
+            <div class="meta-row">
+                <label>Till:</label>
+                <input type="text" value="polischefen@malmo.se" disabled>
+            </div>
+            <div class="meta-row">
+                <label>Ämne:</label>
+                <input type="text" value="Rapport: Avlyssning Bo01" disabled>
+            </div>
+        </div>
+
+        <div class="message-body">
+            <textarea id="messageField" placeholder="Skriv din slutrapport till chefen här..."></textarea>
+        </div>
     </main>
 
     <script src="index.js"></script>
